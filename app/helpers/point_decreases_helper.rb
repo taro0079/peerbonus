@@ -1,0 +1,2 @@
+module PointDecreasesHelper
+end

@@ -1,0 +1,16 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Point decreases" %>
+
+<h1>Point decreases</h1>
+
+<div id="point_decreases">
+  <% @point_decreases.each do |point_decrease| %>
+    <%= render point_decrease %>
+    <p>
+      <%= link_to "Show this point decrease", user_point_decrease_path(point_decrease.user_id, point_decrease) %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New point decrease", new_user_point_decrease_path %>

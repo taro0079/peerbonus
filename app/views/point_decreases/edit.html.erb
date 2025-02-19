@@ -1,0 +1,12 @@
+<% content_for :title, "Editing point decrease" %>
+
+<h1>Editing point decrease</h1>
+
+<%= render "form", point_decrease: @point_decrease %>
+
+<br>
+
+<div>
+  <%= link_to "Show this point decrease", @point_decrease %> |
+  <%= link_to "Back to point decreases", point_decreases_path %>
+</div>

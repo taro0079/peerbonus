@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :point_increases
   resources :users do
     resources :point_increases
+    resources :point_decreases
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

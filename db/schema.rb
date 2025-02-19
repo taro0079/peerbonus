@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_02_19_143153) do
+ActiveRecord::Schema[8.0].define(version: 2025_02_19_161047) do
+  create_table "point_decreases", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "amount", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_point_decreases_on_user_id"
+  end
+
   create_table "point_increases", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "amount", null: false
