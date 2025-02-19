@@ -1,0 +1,2 @@
+class PointIncrease < ApplicationRecord
+end

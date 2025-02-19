@@ -1,0 +1,22 @@
+<%= form_with(model: @point_increase, url: user_point_increases_path(@user), local: true) do |form| %>
+  <% if point_increase.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(point_increase.errors.count, "error") %> prohibited this point_increase from being saved:</h2>
+
+      <ul>
+        <% point_increase.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :amount, "増ポイント" %>
+    <%= form.number_field :amount, required: true %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

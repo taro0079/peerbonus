@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @point_increase %>
+
+<div>
+  <%= link_to "Edit this point increase", edit_point_increase_path(@point_increase) %> |
+  <%= link_to "Back to point increases", user_point_increases_path(@point_increase.user_id) %>
+
+  <%= button_to "Destroy this point increase", @point_increase, method: :delete %>
+</div>
