@@ -8,7 +8,8 @@
   <% @users.each do |user| %>
     <%= render user %>
     <p>
-      <%= link_to "Show this user", user %>
+      <%= link_to "Show this user", user %> |
+      <%= link_to "ポイントを付与", give_point_new_user_path(user) %>
     </p>
   <% end %>
 </div>

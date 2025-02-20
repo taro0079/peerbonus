@@ -6,6 +6,28 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+  def give_point
+    pp params
+    @user = User.find(params[:id])
+    @sender = User.find(params[:sender_id])
+    point_amount = params[:point_amount].to_i
+
+    if point_amount > 0
+      @sender.point_decreases.build(amount: point_amount).save!
+      @user.point_increases.build(amount: point_amount).save!
+
+      redirect_to @user, notice: "we gave points."
+    else
+      redirect_to @user, alert: "error while giving points."
+    end
+  end
+
+  def give_point_new
+    @user = User.find(params[:id])
+    @from_users = User.where.not(id: @user.id)
+    render :give_point_new
+  end
+
   # GET /users/1 or /users/1.json
   def show
   end
@@ -60,7 +82,7 @@ class UsersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
-      @user = User.find(params.expect(:id))
+      @user = User.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.

@@ -1,0 +1,15 @@
+<h1><%= @user.name %>にポイントを付与</h1>
+
+<%= form_with url: give_point_user_path(@user), method: :post do |form| %>
+  <div>
+    <%= label_tag :point_amount, "付与するポイント数" %>
+    <%= number_field_tag :point_amount, nil, min: 1 %>
+    <div>
+      <%= label_tag :sender_id, "送り元ユーザー" %>
+      <%= select_tag :sender_id, options_from_collection_for_select(@from_users, :id, :name) %>
+    </div>
+  </div>
+  <div>
+    <%= form.submit "ポイントを付与" %>
+  </div>
+<% end %>
