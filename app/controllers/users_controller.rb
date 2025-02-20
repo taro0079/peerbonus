@@ -6,8 +6,8 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+  # ポイント付与処理
   def give_point
-    pp params
     @user = User.find(params[:id])
     @sender = User.find(params[:sender_id])
     point_amount = params[:point_amount].to_i
@@ -15,8 +15,11 @@ class UsersController < ApplicationController
     if point_amount > 0
       @sender.point_decreases.build(amount: point_amount).save!
       @user.point_increases.build(amount: point_amount).save!
+      give_point = GivePoint.new(amount: point_amount, from_id: @sender.id, to_id: @user.id)
+      give_point.save!
+      Message.new(content: params[:message_content], from_id: @sender.id, to_id: @user.id, give_point_id: give_point.id).save!
 
-      redirect_to @user, notice: "we gave points."
+      redirect_to @user, notice: "You sent points."
     else
       redirect_to @user, alert: "error while giving points."
     end

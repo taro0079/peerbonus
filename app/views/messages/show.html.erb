@@ -1,0 +1,17 @@
+<p style="color: green"><%= notice %></p>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>From</th>
+        <th>To</th>
+        <th>Content</th>
+    </tr>
+<%= render @message %>
+</table>
+<div>
+  <%= link_to "Edit this message", edit_message_path(@message) %> |
+  <%= link_to "Back to messages", messages_path %>
+
+  <%= button_to "Destroy this message", @message, method: :delete %>
+</div>

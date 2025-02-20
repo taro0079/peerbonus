@@ -1,0 +1,6 @@
+    <tr id="<%= dom_id message %>">
+        <td><%= link_to message.id, message_path(message) %></td>
+        <td><%= message.from_id %></td>
+        <td><%= message.to_id %></td>
+        <td><%= message.content %></td>
+    </tr>

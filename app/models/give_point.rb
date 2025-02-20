@@ -1,0 +1,2 @@
+class GivePoint < ApplicationRecord
+end
