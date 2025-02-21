@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :hold_points
   resources :messages
   resources :point_increases
   resources :users do
