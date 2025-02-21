@@ -1,0 +1,11 @@
+<% content_for :title, "New hold point" %>
+
+<h1>New hold point</h1>
+
+<%= render "form", hold_point: @hold_point %>
+
+<br>
+
+<div>
+  <%= link_to "Back to hold points", hold_points_path %>
+</div>

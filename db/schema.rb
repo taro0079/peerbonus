@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_02_20_081304) do
+ActiveRecord::Schema[8.0].define(version: 2025_02_20_092100) do
   create_table "give_points", force: :cascade do |t|
     t.integer "amount", null: false
     t.integer "from_id", null: false
@@ -19,6 +19,14 @@ ActiveRecord::Schema[8.0].define(version: 2025_02_20_081304) do
     t.datetime "updated_at", null: false
     t.index ["from_id"], name: "index_give_points_on_from_id"
     t.index ["to_id"], name: "index_give_points_on_to_id"
+  end
+
+  create_table "hold_points", force: :cascade do |t|
+    t.integer "amount", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_hold_points_on_user_id"
   end
 
   create_table "messages", force: :cascade do |t|

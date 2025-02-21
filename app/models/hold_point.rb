@@ -1,0 +1,2 @@
+class HoldPoint < ApplicationRecord
+end

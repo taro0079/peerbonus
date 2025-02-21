@@ -1,0 +1,16 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Hold points" %>
+
+<h1>Hold points</h1>
+
+<div id="hold_points">
+  <% @hold_points.each do |hold_point| %>
+    <%= render hold_point %>
+    <p>
+      <%= link_to "Show this hold point", hold_point %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New hold point", new_hold_point_path %>

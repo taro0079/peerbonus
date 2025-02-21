@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @hold_point %>
+
+<div>
+  <%= link_to "Edit this hold point", edit_hold_point_path(@hold_point) %> |
+  <%= link_to "Back to hold points", hold_points_path %>
+
+  <%= button_to "Destroy this hold point", @hold_point, method: :delete %>
+</div>
